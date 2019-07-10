@@ -19,6 +19,7 @@ apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 apply plugin:"asset-pipeline"
 apply plugin:"org.grails.grails-gsp"
+apply plugin:"codenarc"
 
 repositories {
     mavenLocal()
@@ -111,4 +112,28 @@ test {
     }
 
      finalizedBy(mergeJUnitReports)
+}
+
+codenarc {
+    toolVersion = '1.2'
+    config = resources.text.fromFile('grails-app/conf/codenarc-ruleset.groovy')
+    ignoreFailures = true
+
+    codenarcMain {
+        exclude "**/Application.groovy"
+        exclude "**/BootStrap.groovy"
+        exclude "**/UrlMappings.groovy"
+
+        reports {
+            html {
+                enabled = true
+                destination = file("${codenarc.reportsDir}/codenarc.html")
+            }
+
+            xml {
+                enabled =  true
+                destination = file("${codenarc.reportsDir}/codenarc.xml")
+            }
+        }
+    }
 }
