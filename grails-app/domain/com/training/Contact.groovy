@@ -1,5 +1,6 @@
 package com.training
 
+/** Represents Contact data */
 class Contact extends CommonProfile {
 
     String relation

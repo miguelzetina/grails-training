@@ -85,7 +85,7 @@ ruleset {
     CouldBeElvis
     CouldBeSwitchStatement
     FieldTypeRequired {
-        ignoreFieldNames = 'constraints,mapping'
+        ignoreFieldNames = 'constraints,mapping,hasMany'
     }
     HashtableIsObsolete
     IfStatementCouldBeTernary
@@ -110,7 +110,9 @@ ruleset {
 
     // rulesets/design.xml
     AbstractClassWithPublicConstructor
-    AbstractClassWithoutAbstractMethod
+    AbstractClassWithoutAbstractMethod {
+        doNotApplyToClassNames = 'CommonProfile'
+    }
     AssignmentToStaticFieldFromInstanceMethod
     BooleanMethodReturnsNull
     //BuilderMethodWithSideEffects

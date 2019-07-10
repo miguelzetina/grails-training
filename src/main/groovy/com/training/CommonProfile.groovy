@@ -2,7 +2,7 @@ package com.training
 
 import grails.gorm.dirty.checking.DirtyCheck
 
-/** Represents common profile data for every type user */
+/** Represents common profile data for every user type */
 @DirtyCheck
 abstract class CommonProfile {
 
